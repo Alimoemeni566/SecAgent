@@ -95,7 +95,7 @@ It currently supports **seven languages** and **seven security rules** — caref
 
 ### Option 1 — Download the executable (recommended)
 
-1. Head to the [Releases page](https://github.com/alimoemeni/SecAgent/releases)
+1. Head to the [Releases page](https://github.com/Alimoemeni566/SecAgent/releases/tag/v2.0.0)
 2. Download the latest `SecAgent-vX.X.X-win-x64.zip`
 3. Extract the archive anywhere you like
 4. Double-click `SecAgent.exe`
