@@ -74,7 +74,7 @@ It currently supports **seven languages** and **seven security rules** — caref
 <div align="center">
 
 ### Dashboard
-<img src="docs/screenshots/dashboard.png" alt="Dashboard" width="800">
+<img src="docs/screenshots/dashbaord.PNG" alt="Dashboard" width="800">
 
 ### Scanning a project
 <img src="docs/screenshots/scan.png" alt="Scan Page" width="800">
