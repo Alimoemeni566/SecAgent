@@ -91,4 +91,16 @@ It currently supports **seven languages** and **seven security rules** — caref
 
 ---
 
+## Installation
+
+### Option 1 — Download the executable (recommended)
+
+1. Head to the [Releases page](https://github.com/alimoemeni/SecAgent/releases)
+2. Download the latest `SecAgent-vX.X.X-win-x64.zip`
+3. Extract the archive anywhere you like
+4. Double-click `SecAgent.exe`
+
+That's it. **No .NET runtime, no installer, no admin rights needed.** The executable bundles everything it needs.
+
+> If Windows SmartScreen warns you about an unknown publisher, click **More info** → **Run anyway**. This happens for any new executable without an expensive code-signing certificate.
 
