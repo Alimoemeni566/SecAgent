@@ -77,13 +77,13 @@ It currently supports **seven languages** and **seven security rules** — caref
 <img src="dashbaord.PNG" alt="Dashboard" width="800">
 
 ### Scanning a project
-<img src="scan.png" alt="Scan Page" width="800">
+<img src="scan.PNG" alt="Scan Page" width="800">
 
 ### Results with filtering
-<img src="results.png" alt="Results Page" width="800">
+<img src="results.PNG" alt="Results Page" width="800">
 
 ### Auto-Fix — patched files
-<img src="autofix.png" alt="Auto-Fix Page" width="800">
+<img src="autofix.PNG" alt="Auto-Fix Page" width="800">
 
 </div>
 
