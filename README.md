@@ -1,61 +1,114 @@
 <div align="center">
 
-# 🛡️ SecAgent
+<img src="docs/screenshots/banner.png" alt="SecAgent" width="100%">
 
-### تحلیل‌گر امنیتی چندزبانه کد
+# SecAgent
 
-**پیدا کردن آسیب‌پذیری‌ها + تولید خودکار کد اصلاح‌شده**
+**A multi-language static security analyzer for developers who care about shipping secure code.**
 
-[![.NET](https://img.shields.io/badge/.NET-10.0-512BD4?style=flat-square&logo=dotnet)](https://dotnet.microsoft.com)
-[![Platform](https://img.shields.io/badge/Platform-Windows-0078D4?style=flat-square&logo=windows)](https://www.microsoft.com/windows)
-[![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)](LICENSE)
-[![Version](https://img.shields.io/badge/Version-2.0.0-blue?style=flat-square)](https://github.com/Alimoemeni566/SecAgent/releases)
+[![Latest Release](https://img.shields.io/github/v/release/alimoemeni/SecAgent?style=flat-square&color=00D9FF&label=release)](https://github.com/alimoemeni/SecAgent/releases)
+[![License](https://img.shields.io/github/license/alimoemeni/SecAgent?style=flat-square&color=green)](LICENSE)
+[![.NET](https://img.shields.io/badge/.NET-10.0-512BD4?style=flat-square&logo=dotnet&logoColor=white)](https://dotnet.microsoft.com)
+[![Platform](https://img.shields.io/badge/platform-Windows%2010%2B-0078D4?style=flat-square&logo=windows)](https://www.microsoft.com/windows)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen?style=flat-square)](CONTRIBUTING.md)
 
-**ساخته‌شده توسط [علی مؤمنی](https://github.com/Alimoemeni566)**
+[Download](#-installation) · [Documentation](docs/) · [Report a Bug](https://github.com/alimoemeni/SecAgent/issues/new?template=bug_report.md) · [Request a Feature](https://github.com/alimoemeni/SecAgent/issues/new?template=feature_request.md)
 
 </div>
 
 ---
 
-## 📖 درباره پروژه
+## Why SecAgent?
 
-**SecAgent** یک ابزار رومیزی (Desktop) برای **تحلیل استاتیک امنیتی کد** است که به‌صورت **کاملاً آفلاین** کار می‌کند. کد شما هرگز به سرور خارجی ارسال نمی‌شود.
+I spent years watching developers push code they *knew* might have issues — not because they didn't care, but because the existing tools were either too expensive, too complicated to set up, or wanted to upload their source code to someone else's cloud.
 
-### ✨ ویژگی‌های کلیدی
+SecAgent is my answer to that. It's a **desktop application** that runs entirely on your machine, scans your source code for common security flaws, and — this is the part most tools don't do — **generates fixed versions of your files** so you're not just told about the problem, you get a head start on solving it.
 
-- 🌐 **پشتیبانی از ۷ زبان**: C#، Python، JavaScript، TypeScript، PHP، HTML، CSS
-- 🔍 **۷ قانون امنیتی**: SQL Injection، Command Injection، XSS، Hardcoded Secret، Weak Crypto، Insecure Random، Empty Catch
-- 🔧 **Auto-Fix هوشمند**: تولید نسخه اصلاح‌شده فایل‌ها به‌صورت خودکار
-- 🎨 **رابط کاربری مدرن**: تم تیره حرفه‌ای با فیلتر و جستجو
-- 🔒 **۱۰۰٪ آفلاین**: بدون ارسال هیچ داده‌ای به بیرون
-- 📦 **بدون وابستگی خارجی**: همه چیز با .NET خالص
-- 📊 **گزارش JSON**: خروجی ساختاریافته برای مستندسازی
-- ⚡ **سریع و سبک**: تحلیل هزاران خط کد در چند ثانیه
+No servers. No accounts. No telemetry. No code leaving your computer. Ever.
 
 ---
 
-## 🚀 شروع سریع
+## What It Does
 
-### پیش‌نیاز
+SecAgent reads your source files, applies a set of security rules, and reports findings with severity, CWE reference, exact file location, and a code snippet. Then, for the vulnerabilities it can handle, it produces a patched copy of the file.
 
-- **ویندوز ۱۰ یا ۱۱** (64-bit)
-- **.NET 10 SDK** (فقط برای ساخت از سورس)
+It currently supports **seven languages** and **seven security rules** — carefully chosen to cover the issues that show up most often in real codebases.
 
-### نصب
+<table>
+<tr>
+<td valign="top" width="50%">
 
-#### روش ۱: دانلود فایل اجرایی (توصیه‌شده)
+### Supported Languages
 
-1. به بخش [Releases](https://github.com/Alimoemeni566/SecAgent/releases) بروید
-2. آخرین نسخه `SecAgent-v2.0-win-x64.zip` را دانلود کنید
-3. فایل را استخراج کنید
-4. `SecAgent.exe` را دابل‌کلیک کنید — تمام!
+- 🟣 **C#** — `.cs`
+- 🟡 **Python** — `.py`
+- 🟨 **JavaScript** — `.js`, `.mjs`, `.cjs`
+- 🔵 **TypeScript** — `.ts`
+- 🟪 **PHP** — `.php`, `.phtml`
+- 🟠 **HTML** — `.html`, `.htm`
+- 🔷 **CSS** — `.css`
 
-**نیازی به نصب .NET نیست.**
+</td>
+<td valign="top" width="50%">
 
-#### روش ۲: ساخت از سورس
+### Security Rules
+
+| Rule | CWE |
+|------|-----|
+| SQL Injection | [CWE-89](https://cwe.mitre.org/data/definitions/89.html) |
+| Command Injection | [CWE-78](https://cwe.mitre.org/data/definitions/78.html) |
+| Cross-Site Scripting | [CWE-79](https://cwe.mitre.org/data/definitions/79.html) |
+| Hardcoded Secrets | [CWE-798](https://cwe.mitre.org/data/definitions/798.html) |
+| Weak Cryptography | [CWE-327](https://cwe.mitre.org/data/definitions/327.html) |
+| Insecure Randomness | [CWE-338](https://cwe.mitre.org/data/definitions/338.html) |
+| Empty Catch Blocks | [CWE-390](https://cwe.mitre.org/data/definitions/390.html) |
+
+</td>
+</tr>
+</table>
+
+---
+
+## Screenshots
+
+<div align="center">
+
+### Dashboard
+<img src="docs/screenshots/dashboard.png" alt="Dashboard" width="800">
+
+### Scanning a project
+<img src="docs/screenshots/scan.png" alt="Scan Page" width="800">
+
+### Results with filtering
+<img src="docs/screenshots/results.png" alt="Results Page" width="800">
+
+### Auto-Fix — patched files
+<img src="docs/screenshots/autofix.png" alt="Auto-Fix Page" width="800">
+
+</div>
+
+> 📸 *Screenshots coming soon. Place them in `docs/screenshots/` to render.*
+
+---
+
+## Installation
+
+### Option 1 — Download the executable (recommended)
+
+1. Head to the [Releases page](https://github.com/alimoemeni/SecAgent/releases)
+2. Download the latest `SecAgent-vX.X.X-win-x64.zip`
+3. Extract the archive anywhere you like
+4. Double-click `SecAgent.exe`
+
+That's it. **No .NET runtime, no installer, no admin rights needed.** The executable bundles everything it needs.
+
+> If Windows SmartScreen warns you about an unknown publisher, click **More info** → **Run anyway**. This happens for any new executable without an expensive code-signing certificate.
+
+### Option 2 — Build from source
 
 ```bash
-git clone https://github.com/Alimoemeni566/SecAgent.git
+git clone https://github.com/alimoemeni/SecAgent.git
 cd SecAgent
-dotnet build src/SecAgent.Desktop/SecAgent.Desktop.csproj
+dotnet restore
+dotnet build src/SecAgent.Desktop/SecAgent.Desktop.csproj -c Release
 dotnet run --project src/SecAgent.Desktop
