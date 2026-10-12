@@ -87,7 +87,6 @@ It currently supports **seven languages** and **seven security rules** — caref
 
 </div>
 
-> 📸 *Screenshots coming soon. Place them in `docs/screenshots/` to render.*
 
 ---
 
