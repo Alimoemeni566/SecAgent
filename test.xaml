@@ -1,0 +1,184 @@
+<Window x:Class="SecAgent.Desktop.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:loc="clr-namespace:SecAgent.Desktop.Localization"
+        Title="{loc:T App_Title}"
+        Height="820" Width="1400"
+        MinHeight="640" MinWidth="1000"
+        WindowStartupLocation="CenterScreen"
+        Background="#0A0E14"
+        Foreground="#E6EDF3"
+        FontFamily="Segoe UI"
+        FontSize="13">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="240" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <!-- ═══════════ SIDEBAR ═══════════ -->
+        <Border Grid.Column="0"
+                Background="#10141C"
+                BorderBrush="#1F242D"
+                BorderThickness="0,0,1,0">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <!-- Logo -->
+                <StackPanel Grid.Row="0" Margin="20,24,20,24">
+                    <StackPanel Orientation="Horizontal">
+                        <Border Width="36" Height="36" CornerRadius="8" Background="#00D9FF">
+                            <TextBlock Text="🛡" FontSize="20"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center" />
+                        </Border>
+                        <StackPanel Margin="12,0,0,0" VerticalAlignment="Center">
+                            <TextBlock Text="SecAgent"
+                                       FontSize="18" FontWeight="Bold"
+                                       Foreground="#E6EDF3" />
+                            <TextBlock Text="{loc:T App_Version}"
+                                       FontSize="10"
+                                       Foreground="#6E7681" />
+                        </StackPanel>
+                    </StackPanel>
+                </StackPanel>
+
+                <!-- Navigation -->
+                <StackPanel Grid.Row="1">
+                    <TextBlock Text="{loc:T Nav_Section}" FontSize="10" FontWeight="SemiBold"
+                               Foreground="#4A5568" Margin="20,0,0,8" />
+
+                    <RadioButton x:Name="NavDashboard"
+                                 Content="{loc:T Nav_Dashboard}"
+                                 GroupName="Nav" Checked="Nav_Checked"
+                                 Foreground="#8B949E" FontSize="13"
+                                 Padding="16,12" Margin="8,2"
+                                 Cursor="Hand"
+                                 HorizontalContentAlignment="Left"
+                                 Background="Transparent" BorderThickness="0" />
+
+                    <RadioButton x:Name="NavScan"
+                                 Content="{loc:T Nav_Scan}"
+                                 GroupName="Nav" Checked="Nav_Checked"
+                                 Foreground="#8B949E" FontSize="13"
+                                 Padding="16,12" Margin="8,2"
+                                 Cursor="Hand"
+                                 HorizontalContentAlignment="Left"
+                                 Background="Transparent" BorderThickness="0" />
+
+                    <RadioButton x:Name="NavResults"
+                                 Content="{loc:T Nav_Results}"
+                                 GroupName="Nav" Checked="Nav_Checked"
+                                 Foreground="#8B949E" FontSize="13"
+                                 Padding="16,12" Margin="8,2"
+                                 Cursor="Hand"
+                                 HorizontalContentAlignment="Left"
+                                 Background="Transparent" BorderThickness="0" />
+
+                    <RadioButton x:Name="NavFix"
+                                 Content="{loc:T Nav_Fix}"
+                                 GroupName="Nav" Checked="Nav_Checked"
+                                 Foreground="#8B949E" FontSize="13"
+                                 Padding="16,12" Margin="8,2"
+                                 Cursor="Hand"
+                                 HorizontalContentAlignment="Left"
+                                 Background="Transparent" BorderThickness="0" />
+
+                    <RadioButton x:Name="NavSettings"
+                                 Content="{loc:T Nav_Settings}"
+                                 GroupName="Nav" Checked="Nav_Checked"
+                                 Foreground="#8B949E" FontSize="13"
+                                 Padding="16,12" Margin="8,2"
+                                 Cursor="Hand"
+                                 HorizontalContentAlignment="Left"
+                                 Background="Transparent" BorderThickness="0" />
+
+                    <RadioButton x:Name="NavAbout"
+                                 Content="{loc:T Nav_About}"
+                                 GroupName="Nav" Checked="Nav_Checked"
+                                 Foreground="#8B949E" FontSize="13"
+                                 Padding="16,12" Margin="8,2"
+                                 Cursor="Hand"
+                                 HorizontalContentAlignment="Left"
+                                 Background="Transparent" BorderThickness="0" />
+                </StackPanel>
+
+                <!-- Signature -->
+                <Border Grid.Row="2"
+                        Margin="16,12,16,16"
+                        Padding="12,10"
+                        CornerRadius="6"
+                        Background="#161B22"
+                        BorderBrush="#00D9FF"
+                        BorderThickness="1,0,0,0">
+                    <StackPanel>
+                        <TextBlock Text="{loc:T App_MadeBy}" FontSize="9"
+                                   Foreground="#4A5568" FontWeight="SemiBold" />
+                        <TextBlock Text="{loc:T App_Author}"
+                                   FontSize="13" FontWeight="Bold"
+                                   Foreground="#00D9FF" />
+                    </StackPanel>
+                </Border>
+            </Grid>
+        </Border>
+
+        <!-- ═══════════ MAIN AREA ═══════════ -->
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <!-- Top bar -->
+            <Border Grid.Row="0"
+                    Background="#10141C"
+                    BorderBrush="#1F242D"
+                    BorderThickness="0,0,0,1"
+                    Padding="28,16">
+                <Grid>
+                    <StackPanel>
+                        <TextBlock x:Name="PageTitle"
+                                   Text="Dashboard"
+                                   FontSize="20" FontWeight="SemiBold"
+                                   Foreground="#E6EDF3" />
+                        <TextBlock x:Name="PageSubtitle"
+                                   Text="Overview"
+                                   FontSize="11"
+                                   Foreground="#6E7681" />
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal"
+                                HorizontalAlignment="Right"
+                                VerticalAlignment="Center">
+
+                        <!-- Language Switcher -->
+                        <loc:LanguageSwitcher Margin="0,0,12,0" />
+
+                        <!-- Offline badge -->
+                        <Border Background="#0A0E14"
+                                BorderBrush="#1F242D"
+                                BorderThickness="1"
+                                CornerRadius="14"
+                                Padding="14,6">
+                            <StackPanel Orientation="Horizontal">
+                                <Ellipse Width="8" Height="8" Fill="#3FB950"
+                                         VerticalAlignment="Center" Margin="0,0,8,0" />
+                                <TextBlock Text="{loc:T App_Offline}"
+                                           FontSize="11"
+                                           Foreground="#8B949E" />
+                            </StackPanel>
+                        </Border>
+                    </StackPanel>
+                </Grid>
+            </Border>
+
+            <!-- Content -->
+            <ContentControl Grid.Row="1" x:Name="MainContent" />
+        </Grid>
+    </Grid>
+</Window>
