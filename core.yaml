@@ -1,0 +1,33 @@
+# config.yaml
+app:
+  name: SecAgent
+  version: 2.0.0
+  author: Ali Moemeni
+
+scan:
+  recursive: true
+  min_severity: medium
+  max_file_size_mb: 10
+  excluded_folders:
+    - bin
+    - obj
+    - node_modules
+    - .git
+
+languages:
+  - csharp
+  - python
+  - javascript
+  - typescript
+  - php
+  - html
+  - css
+
+rules:
+  sql_injection: true
+  command_injection: true
+  xss: true
+  hardcoded_secrets: true
+  weak_crypto: true
+  insecure_random: true
+  empty_catch: true
