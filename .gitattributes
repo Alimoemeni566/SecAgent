@@ -1,0 +1,21 @@
+# ═══ Linguist — کدهای اصلی ═══
+*.cs             linguist-language=C#
+src/SecAgent.Core/**       linguist-detectable=true
+src/SecAgent.Scanner/**    linguist-detectable=true
+src/SecAgent.Desktop/**    linguist-detectable=true
+
+# ═══ Samples — زبان‌های نمایشی، نه اصلی ═══
+samples/*.py     linguist-vendored
+samples/*.js     linguist-vendored
+samples/*.php    linguist-vendored
+samples/*.html   linguist-vendored
+samples/*.css    linguist-vendored
+
+# ═══ فایل‌های مستندات و تنظیمات ═══
+docs/**          linguist-documentation
+*.md             linguist-documentation
+.github/**       linguist-vendored
+.vscode/**       linguist-vendored
+
+# ═══ XAML رو به‌عنوان C# حساب نکن ═══
+*.xaml           linguist-language=C#
